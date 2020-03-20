@@ -33,14 +33,18 @@ public class UIApplication {
 	    		System.out.println("Insert the variable name: A, B, C OR R");
 	    		char poly2=input.next().charAt(0);
                 if(poly2=='A') {
-	    		System.out.println(s.print(poly2));System.out.println("polynomial A is set");}
-                if(poly2=='B') {
-    	    		System.out.println(s.print(poly2));System.out.println("polynomial B is set");}
+                if(s.print(poly2)!=null) { 
+                	System.out.println(s.print(poly2));System.out.println("polynomial A is set");}}
+	    		if(poly2=='B') {
+	    			 if(s.print(poly2)!=null) { 
+	                 	System.out.println(s.print(poly2));System.out.println("polynomial A is set");}}
                 if(poly2=='C') {
-    	    		System.out.println(s.print(poly2));System.out.println("polynomial C is set");}
+                	 if(s.print(poly2)!=null) { 
+                     	System.out.println(s.print(poly2));System.out.println("polynomial A is set");}}
                 if(poly2=='R') {
-    	    		System.out.println(s.print(poly2));System.out.println("polynomial R is set");}break;
-	    		case 3:
+                	 if(s.print(poly2)!=null) { 
+                     	System.out.println(s.print(poly2));System.out.println("polynomial A is set");}}break;
+                case 3:
 	    		System.out.println("Insert first operand variable name:A ,B or c");
 	    		char poly3=input.next().charAt(0); 
 	    		System.out.println("Insert second operand variable name:A ,B or c");
@@ -92,5 +96,4 @@ public class UIApplication {
 	    	
 	    	}
 	    	
-	    	}
-}
+	    	}}

@@ -222,7 +222,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 				else 
 					s.append(terms[i][0]+"x^"+terms[i][1]+"");return s.toString();
 				} catch (Exception e) {
-				System.out.println("polynomial B is not set");break;}
+				System.out.println("polynomial A is not set");break;}
 			case 'B':
 				try {
 					StringBuilder s=new StringBuilder("");
@@ -343,7 +343,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 				else 
 					s.append(terms[i][0]+"x^"+terms[i][1]+"");return s.toString();
 				} catch (Exception e) {
-				System.out.println("polynomial B is not set");break;}
+				System.out.println("polynomial C is not set");break;}
 		case 'R':
 			try {
 				StringBuilder s=new StringBuilder("");
@@ -402,7 +402,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 				else 
 					s.append(terms[i][0]+"x^"+terms[i][1]+"");return s.toString();
 				} catch (Exception e) {
-				System.out.println("polynomial B is not set");break;}
+				System.out.println("polynomial R is not set");break;}
 			}return null;}
 	public void clearPolynomial(char poly) {
 		if ((int)poly>=97) {
