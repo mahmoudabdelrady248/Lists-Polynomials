@@ -14,12 +14,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	int temp=0;
 	
 	public void FromArrayToList(char poly,int [][]terms) {
-		if ((int)poly>=97) {
-		temp=(int)poly;
-		temp=temp-32;
-		poly=(char) temp;
-		}
-	  switch(poly) {
+		 switch(poly) {
 		case 'A':
 			for(int i=0;i<terms.length;i++) {
 				polynomial x=new polynomial(terms[i][0],terms[i][1]);
@@ -36,11 +31,6 @@ public class PolynomialSolver implements IPolynomialSolver {
 			list3.add(x);
 			}break;}}
 	public int [][] FromListToArray(char poly){
-		if ((int)poly>=97) {
-			temp=(int)poly;
-			temp=temp-32;
-			poly=(char) temp;
-			}
 		switch(poly) {
 		case 'A':
 			SingleLinkedNode n1=list1.head;
@@ -470,7 +460,7 @@ public class PolynomialSolver implements IPolynomialSolver {
     		temp=temp-32;
     		poly2=(char) temp;
     		}
-	if(poly1=='A'&&poly2=='B'||poly1=='A'&&poly2=='B') {
+	if(poly1=='A'&&poly2=='B'||poly1=='B'&&poly2=='A') {
 			int [][]terms1=FromListToArray('A');int [][]terms2=FromListToArray('B');
 			int i=0,j=0;
 		while(i<terms1.length&&j<terms2.length) {
@@ -521,57 +511,57 @@ public class PolynomialSolver implements IPolynomialSolver {
 			while(i<terms1.length&&j==terms2.length) {
 				list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
 			return FromListToArray('R');}
-	else if(poly1=='A'&&poly2=='A') {
-			int [][]terms1=FromListToArray('A');int [][]terms2=FromListToArray('A');
-			int i=0,j=0;
-		while(i<terms1.length&&j<terms2.length) {
-				if(terms1[i][1]>terms2[j][1]) { 
-					list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
-				else if(terms1[i][1]<terms2[j][1]) {
-					list4.add(new polynomial(terms2[j][0],terms2[j][1]));j++;}
-				else {
-					int l=terms1[i][0]+terms2[j][0];
-					list4.add(new polynomial(l,terms1[i][1]));i++;j++;}
-			}
-			while(i==terms1.length&&j<terms2.length) {
-				list4.add(new polynomial(terms2[j][0],terms2[j][1]));j++;}
-			while(i<terms1.length&&j==terms2.length) {
+	else if(poly1=='A'&&poly2=='A'){
+		int [][]terms1=FromListToArray('A');int [][]terms2=FromListToArray('A');
+		int i=0,j=0;
+	while(i<terms1.length&&j<terms2.length) {
+			if(terms1[i][1]>terms2[j][1]) { 
 				list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
-			return FromListToArray('R');}
-		else if(poly1=='B'&&poly2=='B') {
-			int [][]terms1=FromListToArray('B');int [][]terms2=FromListToArray('B');
-			int i=0,j=0;
-		while(i<terms1.length&&j<terms2.length) {
-				if(terms1[i][1]>terms2[j][1]) { 
-					list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
-				else if(terms1[i][1]<terms2[j][1]) {
-					list4.add(new polynomial(terms2[j][0],terms2[j][1]));j++;}
-				else {
-					int l=terms1[i][0]+terms2[j][0];
-					list4.add(new polynomial(l,terms1[i][1]));i++;j++;}
-			}
-			while(i==terms1.length&&j<terms2.length) {
+			else if(terms1[i][1]<terms2[j][1]) {
 				list4.add(new polynomial(terms2[j][0],terms2[j][1]));j++;}
-			while(i<terms1.length&&j==terms2.length) {
+			else {
+				int l=terms1[i][0]+terms2[j][0];
+				list4.add(new polynomial(l,terms1[i][1]));i++;j++;}
+		}
+		while(i==terms1.length&&j<terms2.length) {
+			list4.add(new polynomial(terms2[j][0],terms2[j][1]));j++;}
+		while(i<terms1.length&&j==terms2.length) {
+			list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
+		return FromListToArray('R');}
+	else if(poly1=='B'&&poly2=='B'){
+		int [][]terms1=FromListToArray('B');int [][]terms2=FromListToArray('B');
+		int i=0,j=0;
+	while(i<terms1.length&&j<terms2.length) {
+			if(terms1[i][1]>terms2[j][1]) { 
 				list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
-			return FromListToArray('R');}
-		else if(poly1=='C'&&poly2=='C') {
-			int [][]terms1=FromListToArray('C');int [][]terms2=FromListToArray('C');
-			int i=0,j=0;
-		while(i<terms1.length&&j<terms2.length) {
-				if(terms1[i][1]>terms2[j][1]) { 
-					list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
-				else if(terms1[i][1]<terms2[j][1]) {
-					list4.add(new polynomial(terms2[j][0],terms2[j][1]));j++;}
-				else {
-					int l=terms1[i][0]+terms2[j][0];
-					list4.add(new polynomial(l,terms1[i][1]));i++;j++;}
-			}
-			while(i==terms1.length&&j<terms2.length) {
+			else if(terms1[i][1]<terms2[j][1]) {
 				list4.add(new polynomial(terms2[j][0],terms2[j][1]));j++;}
-			while(i<terms1.length&&j==terms2.length) {
+			else {
+				int l=terms1[i][0]+terms2[j][0];
+				list4.add(new polynomial(l,terms1[i][1]));i++;j++;}
+		}
+		while(i==terms1.length&&j<terms2.length) {
+			list4.add(new polynomial(terms2[j][0],terms2[j][1]));j++;}
+		while(i<terms1.length&&j==terms2.length) {
+			list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
+		return FromListToArray('R');}
+	else if(poly1=='C'&&poly2=='C'){
+		int [][]terms1=FromListToArray('C');int [][]terms2=FromListToArray('C');
+		int i=0,j=0;
+	while(i<terms1.length&&j<terms2.length) {
+			if(terms1[i][1]>terms2[j][1]) { 
 				list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
-			return FromListToArray('R');}
+			else if(terms1[i][1]<terms2[j][1]) {
+				list4.add(new polynomial(terms2[j][0],terms2[j][1]));j++;}
+			else {
+				int l=terms1[i][0]+terms2[j][0];
+				list4.add(new polynomial(l,terms1[i][1]));i++;j++;}
+		}
+		while(i==terms1.length&&j<terms2.length) {
+			list4.add(new polynomial(terms2[j][0],terms2[j][1]));j++;}
+		while(i<terms1.length&&j==terms2.length) {
+			list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
+		return FromListToArray('R');}
 		else return null;
 	}
 	public int [][]subtract(char poly1,char poly2){
