@@ -59,7 +59,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 		case 'R':
 			SingleLinkedNode n4=list4.head;
 			int [][]terms4=new int [list4.size()][2];int i4=0;
-			if(terms4[0][0]==0&&terms4[0][1]==0&&terms4.length==1) return terms4;
+			
 			while(n4!=null){
 			polynomial x=(polynomial)n4.data;
 			if(x.coeff==0) n4=n4.next;
@@ -91,7 +91,9 @@ public class PolynomialSolver implements IPolynomialSolver {
     		for(int i=0;i<n;i++) {
     			for(int j=0;j<2;j++) terms6[i][j]=terms5[i][j];
     		}
-			return terms6;
+    		if(terms4[0][0]==0&&terms4[0][1]==0&&terms4.length==1) return terms4;
+			else{return terms6;}
+			
 		}return null;
 	}
 	public void setPolynomial(char poly,int [][]terms) {
@@ -512,21 +514,11 @@ public class PolynomialSolver implements IPolynomialSolver {
 				list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
 			return FromListToArray('R');}
 	else if(poly1=='A'&&poly2=='A'){
-		int [][]terms1=FromListToArray('A');int [][]terms2=FromListToArray('A');
-		int i=0,j=0;
-	while(i<terms1.length&&j<terms2.length) {
-			if(terms1[i][1]>terms2[j][1]) { 
-				list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
-			else if(terms1[i][1]<terms2[j][1]) {
-				list4.add(new polynomial(terms2[j][0],terms2[j][1]));j++;}
-			else {
-				int l=terms1[i][0]+terms2[j][0];
-				list4.add(new polynomial(l,terms1[i][1]));i++;j++;}
-		}
-		while(i==terms1.length&&j<terms2.length) {
-			list4.add(new polynomial(terms2[j][0],terms2[j][1]));j++;}
-		while(i<terms1.length&&j==terms2.length) {
-			list4.add(new polynomial(terms1[i][0],terms1[i][1]));i++;}
+		int [][]terms1=FromListToArray('A');
+		int i=0;
+	while(i<terms1.length) {
+		list4.add(new polynomial(terms1[i][0]*2,terms1[i][1]));i++;
+	}
 		return FromListToArray('R');}
 	else if(poly1=='B'&&poly2=='B'){
 		int [][]terms1=FromListToArray('B');int [][]terms2=FromListToArray('B');
