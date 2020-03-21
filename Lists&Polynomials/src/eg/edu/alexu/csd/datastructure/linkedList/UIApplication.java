@@ -197,18 +197,18 @@ char poly1;
 	    		
 	    			break;}
 	    		case 7:
-	    		System.out.println("Insert the variable name: A, B, C OR R");
-	    		char poly10;
-	    		try {
-		    		poly10=input.next().charAt(0);
-		    		if (poly10!='A'&& poly10!='B'&&poly10!='C'&&poly10!='R')  {
+		    		System.out.println("Insert the variable name: A, B, C OR R");
+		    		char poly10;
+		    		try {
+			    		poly10=input.next().charAt(0);
+			    		if (poly10!='A'&& poly10!='B'&&poly10!='C'&&poly10!='R'&&poly10!='a'&& poly10!='b'&&poly10!='c'&&poly10!='r')  {
+			    			System.out.println("invalid input");
+			    			break;}
+		    		s.clearPolynomial(poly10);break;
+		    		}
+		    		catch(Exception e) {
 		    			System.out.println("invalid input");
-		    			break;}
-	    		s.clearPolynomial(poly10);break;
-	    		}
-	    		catch(Exception e) {
-	    			System.out.println("invalid input");
-	    		break;
+		    		break;
 	    		}
 	        }
 	    	
